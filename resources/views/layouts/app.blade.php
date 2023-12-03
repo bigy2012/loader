@@ -8,8 +8,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="keywords"
-        content="@foreach ($seos as $item){{ $item->value }}{{ $loop->last ? '' : ',' }} @endforeach">
+    @isset($seos)
+        <meta name="keywords"
+            content="@foreach($seos as $item)@if($item->status == '1'){{ $item->value }}{{ $loop->last ? '' : ',' }}@endif @endforeach">
+    @endisset
     <title>Jiroload</title>
 
     <!-- Scripts -->

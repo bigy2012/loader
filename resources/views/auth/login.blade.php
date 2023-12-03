@@ -80,11 +80,6 @@
     </div>
 
     <style>
-        /* div.card {
-            height: 10em;
-            position: relative
-        } */
-
         div.card {
             margin: 0;
             position: relative;
