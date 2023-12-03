@@ -35,7 +35,9 @@ class HomeController extends Controller
         $data = DB::table('posts')->where('id', $request->id)->first();
         $category = DB::table('categorys')->where('id', $data->post_catergory)->first();
         $categorys = DB::table('categorys')->get();
-        return view('details', ['data' => $data, 'categorys' => $categorys, 'category' => $category]);
+
+        $created_date = thaidate('l j F Y', $data->created_date);
+        return view('details', ['data' => $data, 'categorys' => $categorys, 'category' => $category, 'created_date' => $created_date]);
     }
     public function category(Request $request)
     {

@@ -13,13 +13,19 @@
                                 <li class="breadcrumb-item">{{ $data->post_name }}</li>
                             </ol>
                         </nav>
-                        <hr class="m-0 mt-2">
+                        {{-- <hr class="m-0 mt-2"> --}}
                     </div>
                 </div>
 
                 <div class="row mt-3">
                     <div class="col-12" style="font-weight: bold">
                         <h1>{{ $data->post_name }}</h1>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12" style="font-weight: bold">
+                        <label class="text-secondary">{{ $created_date }}</label>
                     </div>
                 </div>
 

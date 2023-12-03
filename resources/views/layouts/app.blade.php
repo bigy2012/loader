@@ -10,7 +10,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Jiroload</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -47,25 +47,18 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li><a href="{{ url('/') }}" class="nav-link">หน้าแรก</a></li>
-                        <li class="nav-item dropdown">
-                            <a id="category" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                หมวดหมู่
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="category">
-                                @foreach ($categorys as $item)
-                                    <a class="dropdown-item" href="{{ url('/category/'. $item->id) }}">{{ $item->category_name }}</a>
-                                @endforeach
-                            </div>
-                        </li>
+                        
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/contact') }}">Contact</a>
+                        </li>
+
                         <!-- Authentication Links -->
-                        @guest
+                        {{-- @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -90,7 +83,7 @@
                                     </form>
                                 </div>
                             </li>
-                        @endguest
+                        @endguest --}}
                     </ul>
                 </div>
             </div>
@@ -99,6 +92,8 @@
         <main class="py-4">
             @yield('content')
         </main>
+        @include('layouts.footter')
+
     </div>
     <button onclick="topFunction()" id="Totop" title="Go to top">Top</button>
 
