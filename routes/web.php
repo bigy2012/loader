@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Category;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SeoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/category', [Category::class, 'index'])->middleware('is_admin');
     Route::get('/category/process/{id}', [Category::class, 'CategoryGetById'])->middleware('is_admin');
     Route::post('/category/process', [Category::class, 'Process'])->middleware('is_admin');
+    Route::get('/seo', [SeoController::class, 'index'])->middleware('is_admin');
+    Route::post('/process/seo', [SeoController::class, 'process'])->middleware('is_admin');
 });
 
 Route::prefix('/')->group(function () {

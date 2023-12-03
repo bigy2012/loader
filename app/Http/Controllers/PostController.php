@@ -27,6 +27,7 @@ class PostController extends Controller
             "post_description" => "",
             "post_catergory" => "",
             "post_image" => "",
+            "description_seo" => "",
             "post_status" => ""
         ];
 
@@ -43,8 +44,10 @@ class PostController extends Controller
             $post->post_name = $request->post_name;
             $post->post_description = $request->post_description;
             $post->post_catergory = $request->post_catergory;
+            $post->description_seo = $request->description_seo;
+            $post->link_load = $request->link_loader;
+            $post->post_image = $request->post_image;
             $post->post_status = '1';
-            $post->post_image = 'test.png';
             $post->save();
         } 
         elseif ($request->process == 'edit') {
@@ -53,7 +56,9 @@ class PostController extends Controller
             $post->post_description = $request->post_description;
             $post->post_catergory = $request->post_catergory;
             $post->post_status = $request->post_status;
-            // $post->post_image = 'test.png';
+            $post->description_seo = $request->description_seo;
+            $post->link_load = $request->link_loader;
+            $post->post_image = $request->post_image;
             $post->save();
         }
         elseif ($request->process == 'delete') {

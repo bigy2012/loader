@@ -36,8 +36,8 @@
                         <div class="col-12">
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="post_name" name="post_name" required
-                                    value="@if ($data && is_object($data)) {{ $data->post_name }} @endif">
-                                <label for="floatingInput">ชื่อโพสต์</label>
+                                    @if ($data && is_object($data)) value="{{ $data->post_name }}"@endif>
+                                <label for="post_name">ชื่อโพสต์</label>
                             </div>
                         </div>
                     </div>
@@ -45,16 +45,27 @@
                     <div class="row mt-3">
                         <div class="col-12">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="post_name" name="post_name" required
-                                    value="@if ($data && is_object($data)) {{ $data->link_load }} @endif">
-                                <label for="floatingInput">Link Download</label>
+                                <input type="text" class="form-control" id="post_image" name="post_image" required
+                                    @if ($data && is_object($data)) value="{{ $data->post_image }}"@endif>
+                                <label for="post_image">URL รูปภาพหน้าปก</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="row mt-3">
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="link_loader" name="link_loader" required
+                                    @if ($data && is_object($data)) value="{{ $data->link_load }}" @endif>
+                                <label for="link_loader">Link Download</label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row mt-3">
                         <div class="col-12 ">
-                            <textarea name="post_description" rows="30" required>
+                            <textarea name="post_description" class="post_description" rows="30" required>
                                 @if ($data && is_object($data))
                                     {{ $data->post_description }}
                                 @endif
@@ -62,12 +73,13 @@
                         </div>
                     </div>
 
-                    {{-- <div class="row mt-3">
+
+                    <div class="row mt-3">
                         <div class="col-12">
-                            <label for="tags">Tag</label>
-                            <input type="text" id="tags" class="form-control" data-role="tagsinput" />
+                            <label for="description_seo">รายละเอียดเพิ่มเติม SEO</label>
+                            <textarea name="description_seo" class="form-control" id="description_seo" cols="30" rows="10">@if ($data && is_object($data)){{ $data->description_seo }}@endif</textarea>
                         </div>
-                    </div> --}}
+                    </div>
 
                     <div class="row mt-3">
                         <div class="col-12">
@@ -82,7 +94,7 @@
 
     <script>
         tinymce.init({
-            selector: 'textarea',
+            selector: '.post_description',
             plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
             toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
             tinycomments_mode: 'embedded',
