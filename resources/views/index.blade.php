@@ -15,8 +15,7 @@
                             <div class="container-fluid">
                                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                     <li class="nav-item">
-                                        <a class="nav-link active"
-                                            href="{{ url('/') }}">All</a>
+                                        <a class="nav-link active" href="{{ url('/') }}">All</a>
                                     </li>
                                     @foreach ($categorys as $item)
                                         <li class="nav-item">
@@ -35,7 +34,7 @@
                             <div class="col-lg-3 col-sm-12 col-md-12 widget-content">
                                 <a href="{{ url('/detail/' . $item->post_name . '/' . $item->id) }}"
                                     style="text-decoration: none;">
-                                    <div class="card my-3">
+                                    <div class="card my-3" style="height: 90%">
                                         <img src="{{ $item->post_image }}" class="card-img-top" alt="">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $item->post_name }}</h5>
@@ -63,6 +62,11 @@
         .card:hover {
             color: blue;
         }
+
+        .card-img-top {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+        }
     </style>
 @endsection
-
